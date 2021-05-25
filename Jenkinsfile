@@ -2,7 +2,7 @@ node{
     def mvnHome
  
    stage('SetEnv') { 
-      git 'https://github.com/sneha0302/mvnwebapp-1.git'
+      git 'https://github.com/sneha0302/java-reachability-playground.git'
       mvnHome = tool 'MAVEN_HOME'
 	   
    }
