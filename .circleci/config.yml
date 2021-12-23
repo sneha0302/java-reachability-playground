@@ -23,7 +23,7 @@ jobs:
           name: Test
           command: mvn test
 
-      - snyk/scan:
+      - snyk/scan: 
          token-variable: SNYK_TOKEN
          monitor-on-build: false
          project: 'mvnwebapp-1/circle-project-setup'
