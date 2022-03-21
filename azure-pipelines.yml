@@ -9,7 +9,7 @@ pool:
 steps:
   - script: |
       mvn install
-    displayName: 'npm install'
+    displayName: 'mvn install'
   - script: |
       sudo npm install -g snyk
       # create variable in Pipelines called 'SNYK_TOKEN' and securely save your Snyk token value
@@ -18,4 +18,4 @@ steps:
     displayName: 'install snyk'
   - script: |
       sudo snyk test
-    displayName: 'sudo snyk test'
+    displayName: 'sudo snyk test --fail-on=patchable'
