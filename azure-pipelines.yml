@@ -4,12 +4,14 @@ trigger:
 pool:
   vmImage: 'ubuntu-18.04'
 
+
+
 steps:
   - script: |
-      npm install
-    displayName: 'npm install'
+      mvn install
+    displayName: 'mvn install'
   - script: |
-      sudo npm install -g snyk
+      sudo mvn install -g snyk
       # create variable in Pipelines called 'SNYK_TOKEN' and securely save your Snyk token value
       # https://docs.microsoft.com/en-us/azure/devops/pipelines/process/variables
       sudo snyk auth $(SNYK_TOKEN) 
