@@ -9,9 +9,9 @@ pool:
 steps:
   - script: |
       mvn install
-    displayName: 'mvn install'
+    displayName: 'npm install'
   - script: |
-      sudo mvn install -g snyk
+      sudo npm install -g snyk
       # create variable in Pipelines called 'SNYK_TOKEN' and securely save your Snyk token value
       # https://docs.microsoft.com/en-us/azure/devops/pipelines/process/variables
       sudo snyk auth $(SNYK_TOKEN) 
