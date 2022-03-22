@@ -18,4 +18,4 @@ steps:
     displayName: 'install snyk'
   - script: |
       sudo snyk test
-    displayName: 'sudo snyk test --fail-on=patchable'
+    displayName: 'sudo snyk test'
