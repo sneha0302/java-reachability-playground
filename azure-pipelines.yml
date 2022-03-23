@@ -4,7 +4,16 @@ trigger:
 pool:
   vmImage: 'ubuntu-18.04'
 
+#parameters:
+#- name: Firstname
+#  type: string
+#  values:
+#    - Sneha
 
+#resources:
+#  containers:
+#  - container: builder
+#    image: mysecurebuildcontainer:latest 
 
 steps:
   - script: |
@@ -15,6 +24,8 @@ steps:
       # create variable in Pipelines called 'SNYK_TOKEN' and securely save your Snyk token value
       # https://docs.microsoft.com/en-us/azure/devops/pipelines/process/variables
       sudo snyk auth $(SNYK_TOKEN) 
+      #target : builder
+      
     displayName: 'install snyk'
   - script: |
       sudo snyk test
