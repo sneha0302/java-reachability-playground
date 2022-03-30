@@ -1,4 +1,3 @@
-
 version: 2.1
 
 orbs: 
@@ -25,7 +24,7 @@ jobs:
 
       - snyk/scan: 
          token-variable: SNYK_TOKEN
-         monitor-on-build: false
+         monitor-on-build: true
          
 
 # Invoke jobs via workflows
