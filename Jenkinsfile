@@ -11,6 +11,7 @@ pipeline{
 stage('defect-dojo'){
 	steps{
 		script{
+			dir(WORKSPACE){
 			def report_name='snyk_report.json'
 			stash allowEmpty: true, includes: report_name, name: 'snyk_report.json'
 			ws('C:\\Users\\Administrator\\defectdojo_api\\examples\\v2'){
@@ -18,7 +19,7 @@ stage('defect-dojo'){
 			unstash report_name
 			bat 'python dojo_ci_cd.py --product=2 --file '+report_name+' --scanner="Snyk Scan" --high=0 --host=https://demo.defectdojo.org --api_token=548afd6fab3bea9794a41b31da0e9404f733e222 --user=admin --engagement=1 --active TRUE'
 			}
-
+			}
 		}
 
 	}
