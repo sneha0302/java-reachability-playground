@@ -60,7 +60,7 @@ jobs:
         uses: github/codeql-action/upload-sarif@v1
         if: always()
         with:
-         sarif_file: '/home/runner/*/*/*/*.sarif'
+         sarif_file: '/home/runner/work/java-reachability-playground/results/java.sarif'
         
       - name: Use the Upload Artifact GitHub Action
         uses: actions/upload-artifact@v2
