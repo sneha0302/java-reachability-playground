@@ -56,11 +56,17 @@ jobs:
    needs: CodeQL-Build
    runs-on: ubuntu-latest  
    steps:  
+   - name: Download Scan results
+     uses: actions/download-artifact@v2
+     with:
+          name: results
+          path: java.sarif
+     
    - name: Upload  Scan results
-     uses: github/codeql-action/upload-sarif@v2
+     uses: github/codeql-action/-sarif@v2
      if: always()
      with:
-      sarif_file: /home/runner/work/java-reachability-playground/results/java.sarif
+      sarif_file: java.sarif
       catefory: CodeQL
 
       
