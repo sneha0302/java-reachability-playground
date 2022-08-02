@@ -56,6 +56,12 @@ jobs:
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v2
         
+      - name: Upload Prisma IAC Scan results
+        uses: github/codeql-action/upload-sarif@v1
+        if: always()
+        with:
+         sarif_file: 'java.sarif'
+        
       - name: Use the Upload Artifact GitHub Action
         uses: actions/upload-artifact@v2
         with:
