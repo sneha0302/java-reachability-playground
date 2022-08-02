@@ -61,13 +61,13 @@ jobs:
      uses: actions/download-artifact@v2
      with:
           name: results
-          path: java.sarif
+          path: /home/runner/*/*/*/*.sarif
      
    - name: Upload  Scan results
      uses: github/codeql-action/-sarif@v2
      if: always()
      with:
-      sarif_file: java.sarif
-      catefory: CodeQL
+      sarif_file: /home/runner/*/*/*/*.sarif
+      #catefory: CodeQL
 
       
