@@ -61,6 +61,7 @@ jobs:
         if: always()
         with:
          sarif_file: '/home/runner/work/java-reachability-playground/results/java.sarif'
+         catefory: .github/workflows/codeQL_scan.yml:CodeQL-Build/
         
       - name: Use the Upload Artifact GitHub Action
         uses: actions/upload-artifact@v2
