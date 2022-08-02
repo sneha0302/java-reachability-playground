@@ -5,9 +5,7 @@ on:
     
 jobs:
   CodeQL-Build:
-    runs-on: ubuntu-latest
-      
-    
+    runs-on: ubuntu-latest   
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -48,16 +46,21 @@ jobs:
 
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v2
-        
-      - name: Upload  Scan results
-        uses: github/codeql-action/upload-sarif@v2
-        if: always()
-        with:
-         sarif_file: /home/runner/work/java-reachability-playground/results/java.sarif
-         catefory: CodeQL
-        
       - name: Use the Upload Artifact GitHub Action
         uses: actions/upload-artifact@v2
         with:
           name: results
           path: /home/runner/*/*/*/*.sarif
+          
+  Upload-results: 
+   needs: CodeQL-Build
+   runs-on: ubuntu-latest  
+   steps:  
+   - name: Upload  Scan results
+     uses: github/codeql-action/upload-sarif@v2
+     if: always()
+     with:
+      sarif_file: /home/runner/work/java-reachability-playground/results/java.sarif
+      catefory: CodeQL
+
+      
