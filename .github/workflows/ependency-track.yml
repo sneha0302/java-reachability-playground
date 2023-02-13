@@ -1,0 +1,19 @@
+name: "dependency-track scan"
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+
+jobs:
+  SBOM_Scan:
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+      
+    - name: SBOM scanning
+      run: |
+       curl -LO https://dependencytrack.org/docker-compose.yml
+       docker-compose up -d
